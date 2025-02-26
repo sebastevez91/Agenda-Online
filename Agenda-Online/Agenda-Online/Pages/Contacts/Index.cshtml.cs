@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using AgendaOnline.Data;
 using AgendaOnline.Models;
 
 namespace Agenda_Online.Pages.Contacts
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly AgendaOnline.Data.AgendaDbContext _context;

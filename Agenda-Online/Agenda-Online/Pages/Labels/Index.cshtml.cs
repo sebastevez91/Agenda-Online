@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AgendaOnline.Data;
 using AgendaOnline.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Agenda_Online.Pages.Labels
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly AgendaOnline.Data.AgendaDbContext _context;
