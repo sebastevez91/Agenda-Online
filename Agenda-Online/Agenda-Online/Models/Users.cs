@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.Contracts;
 
 namespace AgendaOnline.Models
 {
-    public class Users
+    public class Users : IdentityUser
     {
         [Key]
         public int IdUser { get; set; }

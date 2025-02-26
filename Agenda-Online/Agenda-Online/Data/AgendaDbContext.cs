@@ -1,14 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using AgendaOnline.Models;
-using System.Diagnostics.Contracts;
 
 namespace AgendaOnline.Data
 {
-    public class AgendaDbContext : DbContext
+    public class AgendaDbContext : IdentityDbContext<Users>
     {
         public AgendaDbContext(DbContextOptions<AgendaDbContext> options) : base(options) { }
 
-        public DbSet<Users> Users { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<Label> Label { get; set; }
         public DbSet<LabelContact> LabelContact { get; set; }
