@@ -1,0 +1,30 @@
+﻿@page
+@model Agenda_Online.Pages.Labels.IndexModel
+
+<h2>Lista de Etiquetas</h2>
+
+<p>
+    <a asp-page="Create">Agregar Etiqueta</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var etiqueta in Model.Label)
+        {
+            <tr>
+                <td>@etiqueta.LabelName</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@etiqueta.LabelId">Editar</a> |
+                    <a asp-page="Delete" asp-route-id="@etiqueta.LabelId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,31 @@
+﻿@page
+@model Agenda_Online.Pages.Labels.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Label</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Label.IdUser)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Label.IdUser)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Label.LabelName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Label.LabelName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Label.LabelId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

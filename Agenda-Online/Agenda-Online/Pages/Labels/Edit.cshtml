@@ -1,0 +1,13 @@
+﻿@page
+@model Agenda_Online.Pages.Labels.EditModel
+
+<h2>Editar Etiqueta</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Label.LabelId" />
+    <div class="form-group">
+        <label>Nombre</label>
+        <input asp-for="Label.LabelName" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
