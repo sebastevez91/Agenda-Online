@@ -7,8 +7,6 @@ namespace AgendaOnline.Models
 {
     public class Users : IdentityUser
     {
-        [Key]
-        public int IdUser { get; set; }
 
         [Required, StringLength(100)]
         public string Username { get; set; } = string.Empty;
