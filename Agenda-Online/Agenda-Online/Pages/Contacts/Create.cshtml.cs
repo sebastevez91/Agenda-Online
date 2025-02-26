@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AgendaOnline.Data;
 using AgendaOnline.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Contracts;
 
 namespace Agenda_Online.Pages.Contacts
 {
@@ -28,12 +30,30 @@ namespace Agenda_Online.Pages.Contacts
         [BindProperty]
         public Contact Contact { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+        [BindProperty]
+        public List<int> SelectedLabel { get; set; } = new();
+
+        public List<Label> LabelAvailable { get; set; } = new();
+
+        public async Task OnGetAsync()
+        {
+            LabelAvailable = await _context.Label.ToListAsync();
+        }
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+
+            // Asignar etiquetas seleccionadas
+            foreach (var etiquetaId in SelectedLabel)
+            {
+                _context.LabelContact.Add(new LabelContact
+                {
+                    ContactId = Contact.ContactId,
+                    LabelId = etiquetaId
+                });
             }
 
             _context.Contact.Add(Contact);

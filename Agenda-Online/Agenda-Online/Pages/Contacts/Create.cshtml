@@ -16,5 +16,16 @@
         <label>Email</label>
         <input asp-for="Contact.Mail" class="form-control" />
     </div>
+    <div class="form-group">
+        <label>Etiquetas</label>
+        @foreach (var etiqueta in Model.LabelAvailable)
+        {
+            <div>
+                <input type="checkbox" name="EtiquetasSeleccionadas" value="@etiqueta.LabelId" />
+                @etiqueta.LabelName
+            </div>
+        }
+    </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
+

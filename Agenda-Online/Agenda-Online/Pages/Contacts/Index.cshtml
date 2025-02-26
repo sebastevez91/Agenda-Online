@@ -13,6 +13,7 @@
             <th>Nombre</th>
             <th>Teléfono</th>
             <th>Email</th>
+            <th>Etiqueta</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -23,6 +24,13 @@
                 <td>@contacto.ContactName</td>
                 <td>@contacto.Phone</td>
                 <td>@contacto.Mail</td>
+                <td>
+                    @foreach (var etiqueta in contacto.LabelsContact.Select(ce => ce.Label))
+                    {
+                        <span class="badge badge-primary">@etiqueta.LabelName</span>
+                    }
+                </td>
+
                 <td>
                     <a asp-page="Edit" asp-route-id="@contacto.ContactId">Editar</a> |
                     <a asp-page="Delete" asp-route-id="@contacto.ContactId">Eliminar</a>
