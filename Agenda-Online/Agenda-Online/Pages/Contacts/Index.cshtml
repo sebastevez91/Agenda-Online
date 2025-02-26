@@ -1,0 +1,33 @@
+﻿@page
+@model Agenda_Online.Pages.Contacts.IndexModel
+
+<h2>Lista de Contactos</h2>
+
+<p>
+    <a asp-page="Create">Agregar Contacto</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var contacto in Model.Contact)
+        {
+            <tr>
+                <td>@contacto.ContactName</td>
+                <td>@contacto.Phone</td>
+                <td>@contacto.Mail</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@contacto.ContactId">Editar</a> |
+                    <a asp-page="Delete" asp-route-id="@contacto.ContactId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
