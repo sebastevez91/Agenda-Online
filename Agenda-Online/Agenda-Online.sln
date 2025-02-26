@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda-Online", "Agenda-Online\Agenda-Online.csproj", "{43205022-A9B6-4943-A69E-F80471CFAB3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agenda-Online", "Agenda-Online\Agenda-Online.csproj", "{43205022-A9B6-4943-A69E-F80471CFAB3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{B33252A7-4F9A-4B10-BB61-07B48615CA7C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
