@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using AgendaOnline.Data;
 using AgendaOnline.Models;
+using System.Security.Claims;
 
 namespace Agenda_Online.Pages.Contacts
 {
@@ -25,8 +26,11 @@ namespace Agenda_Online.Pages.Contacts
 
         public async Task OnGetAsync()
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Contact = await _context.Contact
-                .Include(c => c.Users).ToListAsync();
+                .Where(c => c.IdUser == userId)
+                .ToListAsync();
         }
+
     }
 }
