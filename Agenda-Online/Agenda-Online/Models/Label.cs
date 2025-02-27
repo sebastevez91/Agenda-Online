@@ -8,7 +8,7 @@ namespace AgendaOnline.Models
         public int LabelId { get; set; }
 
         [Required]
-        public int IdUser { get; set; }
+        public string IdUser { get; set; } = string.Empty;
 
         [Required, StringLength(50)]
         public string LabelName { get; set; } = string.Empty;

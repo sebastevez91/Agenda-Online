@@ -9,7 +9,7 @@ namespace AgendaOnline.Models
     {
 
         [Required, StringLength(100)]
-        public string Username { get; set; } = string.Empty;
+        public string nameUser { get; set; } = string.Empty;
 
         [Required, EmailAddress, StringLength(150)]
         public string Mail { get; set; } = string.Empty;

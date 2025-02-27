@@ -1,31 +1,35 @@
 ﻿@page
 @model Agenda_Online.Pages.Contacts.CreateModel
 
-<h2>Agregar Contacto</h2>
+<h2 class="my-4">Agregar Contacto</h2>
 
-<form method="post">
-    <div class="form-group">
-        <label>Nombre</label>
-        <input asp-for="Contact.ContactName" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Teléfono</label>
-        <input asp-for="Contact.Phone" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input asp-for="Contact.Mail" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Etiquetas</label>
-        @foreach (var etiqueta in Model.LabelAvailable)
-        {
-            <div>
-                <input type="checkbox" name="EtiquetasSeleccionadas" value="@etiqueta.LabelId" />
-                @etiqueta.LabelName
-            </div>
-        }
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+<div class="card shadow-sm p-4">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input asp-for="Contact.ContactName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input asp-for="Contact.Phone" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input asp-for="Contact.Mail" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Etiquetas</label>
+            @foreach (var etiqueta in Model.LabelAvailable)
+            {
+                <div>
+                    <input type="checkbox" name="EtiquetasSeleccionadas" value="@etiqueta.LabelId" />
+                    @etiqueta.LabelName
+                </div>
+            }
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <a class="btn btn-secondary" asp-page="Index">Cancelar</a>
+    </form>
+</div>
+
 

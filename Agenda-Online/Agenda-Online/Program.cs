@@ -49,3 +49,15 @@ async Task CrearRoles(IServiceProvider serviceProvider)
         }
     }
 }
+
+async Task AsignarAdmin(IServiceProvider serviceProvider)
+{
+    // Cambiar email con el que utiliza el administrador
+    var userManager = serviceProvider.GetRequiredService<UserManager<Users>>();
+    var user = await userManager.FindByEmailAsync("admin@correo.com");
+
+    if (user != null && !(await userManager.IsInRoleAsync(user, "Admin")))
+    {
+        await userManager.AddToRoleAsync(user, "Admin");
+    }
+}
