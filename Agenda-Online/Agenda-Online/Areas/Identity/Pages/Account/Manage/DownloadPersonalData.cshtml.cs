@@ -2,17 +2,11 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 using AgendaOnline.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace Agenda_Online.Areas.Identity.Pages.Account.Manage
 {
@@ -39,10 +33,10 @@ namespace Agenda_Online.Areas.Identity.Pages.Account.Manage
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                return NotFound($"No se puede cargar el usuario con ID '{_userManager.GetUserId(User)}'.");
             }
 
-            _logger.LogInformation("User with ID '{UserId}' asked for their personal data.", _userManager.GetUserId(User));
+            _logger.LogInformation("Usuario con ID '{UserId}' pidió sus datos personales.", _userManager.GetUserId(User));
 
             // Only include personal data for download
             var personalData = new Dictionary<string, string>();
@@ -56,7 +50,7 @@ namespace Agenda_Online.Areas.Identity.Pages.Account.Manage
             var logins = await _userManager.GetLoginsAsync(user);
             foreach (var l in logins)
             {
-                personalData.Add($"{l.LoginProvider} external login provider key", l.ProviderKey);
+                personalData.Add($"{l.LoginProvider} clave de proveedor de inicio de sesión externo", l.ProviderKey);
             }
 
             personalData.Add($"Authenticator Key", await _userManager.GetAuthenticatorKeyAsync(user));
