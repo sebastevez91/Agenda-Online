@@ -1,12 +1,15 @@
 ﻿@page
 @model Agenda_Online.Pages.Labels.CreateModel
 
-<h2>Agregar Etiqueta</h2>
+<h2 class="my-4">Agregar Etiqueta</h2>
 
-<form method="post">
-    <div class="form-group">
-        <label>Nombre</label>
-        <input asp-for="Label.LabelName" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+<div class="card shadow-sm p-4">
+    <form method="post">
+        <div class="form-group">
+            <label>Nombre de etiqueta</label>
+            <input asp-for="Label.LabelName" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+

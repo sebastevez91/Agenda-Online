@@ -1,14 +1,14 @@
 ﻿@page
 @model Agenda_Online.Pages.Labels.IndexModel
 
-<h2>Lista de Etiquetas</h2>
+<h2 class="my-4">Lista de Etiquetas</h2>
 
 <p>
-    <a asp-page="Create">Agregar Etiqueta</a>
+    <a class="btn btn-success mb-3" asp-page="Create">Agregar Etiqueta</a>
 </p>
 
-<table class="table">
-    <thead>
+<table class="table table-hover shadow-sm">
+    <thead class="table-dark">
         <tr>
             <th>Nombre</th>
             <th>Acciones</th>
@@ -20,8 +20,8 @@
             <tr>
                 <td>@etiqueta.LabelName</td>
                 <td>
-                    <a asp-page="Edit" asp-route-id="@etiqueta.LabelId">Editar</a> |
-                    <a asp-page="Delete" asp-route-id="@etiqueta.LabelId">Eliminar</a>
+                    <a class="btn btn-warning btn-sm" asp-page="Edit" asp-route-id="@etiqueta.LabelId">Editar</a> |
+                    <a class="btn btn-danger btn-sm" asp-page="Delete" asp-route-id="@etiqueta.LabelId">Eliminar</a>
                 </td>
             </tr>
         }

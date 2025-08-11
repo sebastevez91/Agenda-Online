@@ -12,7 +12,7 @@ namespace AgendaOnline.Models
         public string IdUser { get; set; } = string.Empty;
 
         [ForeignKey("IdUser")]
-        public Users Users { get; set; } = null!;
+        public Users? Users { get; set; } = null!;
 
         [Required, StringLength(100)]
         public string ContactName { get; set; } = string.Empty;

@@ -7,16 +7,6 @@ namespace AgendaOnline.Models
 {
     public class Users : IdentityUser
     {
-
-        [Required, StringLength(100)]
-        public string nameUser { get; set; } = string.Empty;
-
-        [Required, EmailAddress, StringLength(150)]
-        public string Mail { get; set; } = string.Empty;
-
-        [Required]
-        public string Password { get; set; } = string.Empty;
-
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
         public string? ProfilePhoto { get; set; }

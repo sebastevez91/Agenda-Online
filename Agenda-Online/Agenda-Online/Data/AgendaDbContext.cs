@@ -27,6 +27,13 @@ namespace AgendaOnline.Data
                 .HasOne(ce => ce.Label)
                 .WithMany(e => e.LabelsContact)
                 .HasForeignKey(ce => ce.LabelId);
+
+            // Relación entre Contact y Users (un usuario tiene muchos contactos)
+            modelBuilder.Entity<Contact>()
+                .HasOne(c => c.Users)
+                .WithMany(u => u.Contacts)
+                .HasForeignKey(c => c.IdUser)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

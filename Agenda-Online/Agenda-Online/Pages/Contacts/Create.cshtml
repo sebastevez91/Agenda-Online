@@ -5,8 +5,10 @@
 
 <div class="card shadow-sm p-4">
     <form method="post">
+        <input type="hidden" asp-for="Contact.IdUser" />
+        <input type="hidden" asp-for="Contact.CreationDate" class="form-control" value="@DateTime.Now" />
         <div class="mb-3">
-            <label class="form-label">Nombre</label>
+            <label class="form-label">Nombre Completo</label>
             <input asp-for="Contact.ContactName" class="form-control" />
         </div>
         <div class="mb-3">
@@ -22,11 +24,12 @@
             @foreach (var etiqueta in Model.LabelAvailable)
             {
                 <div>
-                    <input type="checkbox" name="EtiquetasSeleccionadas" value="@etiqueta.LabelId" />
+                    <input type="checkbox" name="SelectedLabel" value="@etiqueta.LabelId" />
                     @etiqueta.LabelName
                 </div>
             }
         </div>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
         <a class="btn btn-secondary" asp-page="Index">Cancelar</a>
     </form>
