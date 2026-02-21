@@ -7,4 +7,11 @@
     <RootNamespace>Agenda_Online</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Activities\" />
+    <Folder Include="Pages\Tasks\" />
+    <Folder Include="Pages\Contacts\" />
+    <Folder Include="Pages\Notifications\" />
+  </ItemGroup>
+
 </Project>
